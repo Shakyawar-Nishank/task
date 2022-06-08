@@ -1,0 +1,157 @@
+{% extends 'main.html' %} {% block content %}
+
+<div class="container w-75 my-5 p-3 border shadow-lg rounded-2">
+  <h2 class="text-center">
+    Register as a {%if pk == "DOC"%}DOCTOR{%else%}PATIENT{%endif%}
+  </h2>
+  {%include 'messages.html'%}
+  <form class="p-2" action="{% url 'register' pk %}" method="post" validate>
+    {% csrf_token %}
+    <div class="row mb-3">
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            placeholder="Enter your first name..."
+            name="first_name"
+            required
+          />
+          <label class="mb-2" for="firstname">First Name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            placeholder="Enter your last name..."
+            name="last_name"
+            required
+          />
+          <label class="mb-2" for="lastname">Last Name</label>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="profile_photo" class="form-label">Profile Photo</label>
+      <input
+        class="form-control"
+        type="file"
+        id="profile_photo"
+        name="profile_photo"
+        accept="image/*"
+      />
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Enter your username..."
+        name="username"
+        required
+      />
+      <label class="mb-2" for="username">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter your email..."
+        name="email"
+        required
+      />
+      <label class="mb-2" for="email">Email</label>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter your password..."
+            name="password"
+            required
+          />
+          <label class="mb-2" for="password">Password</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="confirm_password"
+            placeholder="Enter your password again..."
+            name="confirm_password"
+            required
+          />
+          <label class="mb-2" for="confirm_password">Confirm password</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        placeholder="Enter your address line 1..."
+        name="address"
+        required
+      />
+      <label class="mb-2" for="address">Address line 1</label>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            placeholder="Enter your city..."
+            name="city"
+            required
+          />
+          <label class="mb-2" for="city">City</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            placeholder="Enter your state..."
+            name="state"
+            required
+          />
+          <label class="mb-2" for="state">State</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="pincode"
+            placeholder="Enter your pincode..."
+            name="pincode"
+            required
+          />
+          <label class="mb-2" for="pincode">Pincode</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary w-100 mb-2">Submit</button>
+    <hr />
+    Already have an account?
+    <a href="{%url 'login' pk%}">Login</a>
+  </form>
+</div>
+
+{% endblock content %}
