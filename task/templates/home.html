@@ -1,0 +1,24 @@
+{% extends 'main.html' %} {% block content %}
+<div class="container border mt-5 text-center">
+  <div class="row m-5">
+    <div class="col p-5 border mx-2 shadow-lg">
+      <h1>Are you a Doctor?</h1>
+      <a href='{% url "login" "DOC" %}' class="btn btn-primary"
+        >Login as a Doctor</a
+      >
+      <a href='{% url "register" "DOC" %}' class="btn btn-primary"
+        >Register as a Doctor</a
+      >
+    </div>
+    <div class="col p-5 border mx-2 shadow-lg">
+      <h1>Are you a Patient?</h1>
+      <a href='{% url "login" "PAT" %}' class="btn btn-primary"
+        >Login as a Patient</a
+      >
+      <a href='{% url "register" "PAT" %}' class="btn btn-primary"
+        >Register as a Patient</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock content %}
