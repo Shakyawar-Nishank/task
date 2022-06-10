@@ -9,8 +9,20 @@
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link active" href="{%url 'dashboard'%}">DASHBOARD</a>
+          <a class="nav-link active" href="{%url 'dashboard'%}">PROFILE</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{%url 'blog'%}">BLOG</a>
+        </li>
+
+          {% if pk == 'DOC' %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{%url 'create-blog'%}">CREATE BLOG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{%url 'view-blog'%}">DRAFT</a>
+          </li>
+          {% endif %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
         </li>

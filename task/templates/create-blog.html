@@ -1,0 +1,81 @@
+{% extends 'main.html' %} {% block content %}
+<div class="container w-75 my-5 p-3 border shadow-lg rounded-2">
+  <h2 class="text-center">CREATE BLOG</h2>
+  {%include 'messages.html'%}
+  <form
+    class="p-2"
+    action="{% url 'create-blog' %}"
+    method="post"
+    enctype="multipart/form-data"
+    validate
+  >
+    {% csrf_token %}
+
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Enter your title..."
+        name="title"
+        required
+      />
+      <label class="mb-2" for="title">Title</label>
+    </div>
+
+    <div class="mb-3">
+      <label for="blog_image " class="form-label">Blog Photo</label>
+      <input
+        class="form-control"
+        type="file"
+        id="blog_image"
+        name="blog_image"
+        accept="image/*"
+      />
+    </div>
+
+    <label for="blog_image" class="form-label">Category</label>
+    <select
+      class="form-select p-3"
+      aria-label="Default select example "
+      name="category"
+    >
+      <option selected>Select Category</option>
+      <option value="Mental Health">Mental Health</option>
+      <option value="Hearth Disease">Hearth Disease</option>
+      <option value="Covid-19">Covid-19</option>
+      <option value="Immunization">Immunization</option>
+    </select>
+
+    <br />
+
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="summary"
+        placeholder="Enter your summary..."
+        name="summary"
+        required
+      />
+      <label class="mb-2" for="summary">summary</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="content"
+        placeholder="Enter your content..."
+        name="content"
+        required
+      />
+      <label class="mb-2" for="content">content</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mb-2 bg-gradient">
+      Submit
+    </button>
+  </form>
+</div>
+{% endblock content %}

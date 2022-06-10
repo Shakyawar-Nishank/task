@@ -1,0 +1,26 @@
+{% extends 'main.html' %} {% block content %} {% for use in user %}
+<div class="row">
+  <div class="col-lg-8 mb-4">
+    <img
+      class="rounded mx-auto d-block"
+      src="{{hospital_user.profile_image.url}}"
+      height="300"
+      width="500"
+    />
+  </div>
+  <div class="col-lg-4 mb-4">
+    <h3>Details</h3>
+    <hr />
+    <p>Writter > <b>{{use.owner}}</b></p>
+    <p>Title > <b>{{use.title}}</b></p>
+    <p>Category > <b>{{use.category}}</b></p>
+    <p>Summary > <b>{{use.summary}}</b></p>
+    <p>
+      Content >
+      <b> {{use.content|truncatechars:70}} </b>
+    </p>
+  </div>
+  <hr />
+</div>
+
+{%endfor %} {% endblock content %}
