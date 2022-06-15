@@ -1,0 +1,38 @@
+{%extends 'main.html'%} {% load static %}{% block content %}
+
+<div class="container">
+  <h1 class="mt-4 mb-3">
+    Welcome,
+    <small>{{hospital_user.user.username}}</small>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-lg-8 mb-4">
+    <img
+      class="rounded mx-auto d-block"
+      src="{{hospital_user.profile_image.url}}"
+      height="600"
+      width="1000"
+    />
+  </div>
+  <div class="col-lg-4 mb-4">
+    <h3>Details</h3>
+    <hr />
+    <p>Username: <b>{{hospital_user.user.username}}</b></p>
+    <!-- <br /> -->
+    <p>First Name: <b>{{hospital_user.user.first_name}}</b></p>
+    <!-- <br /> -->
+    <p>Laast Name: <b>{{hospital_user.user.last_name}}</b></p>
+    <!-- <br /> -->
+    <p>Email: <b>{{hospital_user.user.email}}</b></p>
+    <!-- <br /> -->
+    <p>Address Line 1: <b>{{hospital_user.address_line_1}}</b></p>
+    <!-- <br /> -->
+    <p>City: <b>{{hospital_user.city}}</b></p>
+    <p>state: <b>{{hospital_user.state}}</b></p>
+    <p>pincode: <b>{{hospital_user.pincode}}</b></p>
+  </div>
+</div>
+
+{% endblock content %}
