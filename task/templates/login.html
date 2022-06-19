@@ -1,0 +1,36 @@
+{% extends 'main.html' %} {% block content %}
+
+<div class="container w-50 my-5 p-3 border shadow-lg rounded-2">
+  <h2 class="text-center">
+    Login as a {%if pk == "DOC"%}DOCTOR{%else%}PATIENT{%endif%}
+  </h2>
+  {%include 'messages.html'%}
+  <form class="p-2" action="{% url 'login' pk %}" method="post" validate>
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="mb-2" for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Enter your username..."
+        name="username"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="mb-2" for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Enter your password..."
+        name="password"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary w-100 mb-2">Submit</button>
+    <hr />
+    Don't have an account yet?
+    <a href="{%url 'register' pk%}">Register</a>
+  </form>
+</div>
+{% endblock content %}

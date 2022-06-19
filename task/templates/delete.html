@@ -1,0 +1,20 @@
+{% extends 'main.html' %} {% block content %}
+<div class="container">
+  <form method="POST" class="form" action="{% url 'delete-blog' pkk %}">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{sch}}"?</p>
+    <div class="auth__actions">
+      <a class="btn btn-primary" href="{{request.META.HTTP_REFERER}}"
+        >Go Back</a
+      >
+      <input
+        class="btn btn-danger"
+        type="submit"
+        value="Confirm"
+        class="login_btn red"
+      />
+    </div>
+  </form>
+
+  {% endblock content %}
+</div>
