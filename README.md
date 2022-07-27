@@ -1,1 +1,1 @@
-# task
+# E-Commerce Django App 
